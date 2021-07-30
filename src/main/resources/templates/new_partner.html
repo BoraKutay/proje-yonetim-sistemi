@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Proje Yönetim Sistemi</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h1>Proje Yönetim Sistemi</h1>
+  <hr>
+  <h2>Partner Ekle</h2>
+
+
+  <form action="#" th:action="@{/savePartner}" th:object="${partner}" method="POST">
+    <input type="text" th:field="*{partnerName}" placeholder="Partner Adı" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{address}" placeholder="Adress" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{phoneNumber}" placeholder="Telefon numarası" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{taxNumber}" placeholder="Vergi numarası" class="form-control mb-4 col-4">
+
+    <select th:field="*{country}">
+      <option th:each="country: ${listCountries}" th:text="${country.countryName}" th:value="${country.countryID}" > </option>
+    </select>
+
+    <button type="submit" class="btn btn-info col-2"> Partneri Kaydet </button>
+    </form>
+  </form>
+
+  <hr>
+  <a th:href="@{/partners}"> Partnerlere geri dön</a>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Proje Yönetim Sistemi</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+  <h1>Proje Yönetim Sistemi</h1>
+  <hr>
+  <h2>Ülke Güncelle</h2>
+
+  <form action="#" th:action="@{/saveCountry}" th:object="${country}", method="POST">
+
+    <input type="hidden" th:field="*{countryID}" />
+    <input type="text" th:field="*{countryName}" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{countryCode}" class="form-control mb-4 col-4">
+    <label>Bayrak:</label>
+    <input type="file" id="fileImage" th:field="*{flag}" accept="image/png, image/jpeg">
+    <img id="thumbnail" src="#" alt="Önizleme" />
+    <button type="submit" class="btn btn-info col-2"> Ülkeyi Güncelle</button>
+  </form>
+  <hr>
+  <a th:href="@{/countries}"> Ülkelere geri dön </a> "
+</div>
+</body>
+</html>

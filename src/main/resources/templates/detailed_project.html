@@ -1,0 +1,56 @@
+<!-- Page Content -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="UTF-8">
+  <title>Proje Yönetim Sistemi</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4" th:text="${project.projectName}">
+    <small th:text="${project.projectShortName}"></small>
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+
+    <div class="col-md-4">
+      <h3 class="my-3">Proje Açıklaması</h3>
+      <p th:text="${project.description}"></p>
+      <h3 class="my-3">Proje Partnerleri</h3>
+      <ul th:each ="partner : ${project.partners}">
+        <li th:text="${partner.partnerName}"></li>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Ülkeler</h3>
+      <ul th:each ="partner : ${project.partners}">
+        <li th:text="${partner.country.countryName}"></li>
+        <img th:src="${'/countries/'+partner.country.getCountryCode().toLowerCase()+'.png'}">
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Proje Durumu</h3>
+      <ul th:each ="project : ${project}">
+        <li th:text="${project.status.status}"></li>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Proje Çağrısı</h3>
+      <ul th:each ="project : ${project}">
+        <li th:text="${project.projectCall.projectCallName}"></li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Proje Yönetim Sistemi</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+  <script src="https://ajax.gooleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Proje Yönetim Sistemi</h1>
+  <hr>
+  <h2>Kayıt Ol</h2>
+
+  <form action="#" th:action="@{/saveUser}" th:object="${user}", method="POST">
+    <input type="text" th:field="*{userName}" placeholder="Ad" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{userSurname}" placeholder="Soyad" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{userMail}" placeholder="Email" class="form-control mb-4 col-4">
+    <input type="password" th:field="*{userPassword}" placeholder="Parola" class="form-control mb-4 col-4">
+    <select hidden th:field="*{roles}">
+      <option selected th:value="ROLE_USER"> ROLE_USER</option>
+    </select>
+    <label>Avatar:</label>
+    <input type="file" id="fileImage" th:field="*{userImage}" accept="image/png, image/jpeg">
+
+    <img id="thumbnail" src="#" alt="Önizleme" />
+
+    <br><br>
+
+
+    <button type="submit" class="btn btn-info col-2"> Kayıt Ol </button>
+  </form>
+  <hr>
+  <a th:href="@{/}"> Giriş ekranına geri dön</a>
+</div>
+</body>
+
+</html>
