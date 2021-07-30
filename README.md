@@ -43,3 +43,6 @@ Admin kayıtlı kullanıcıları da görebilmektedir. Kullanıcıların rollerin
 
 
 
+ER Diyagramı
+![image](https://user-images.githubusercontent.com/27950192/127637362-26c265ad-e808-41a6-a83f-f1a1c0450474.png)
+
